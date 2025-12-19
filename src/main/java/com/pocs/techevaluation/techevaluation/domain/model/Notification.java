@@ -33,23 +33,3 @@ public record Notification(
     }
 }
 
-/**
- * Notification channel types.
- */
-enum NotificationChannel {
-    EMAIL, SMS, PUSH
-}
-
-/**
- * Notification priority levels.
- */
-enum NotificationPriority {
-    HIGH, MEDIUM, LOW
-}
-
-/**
- * Notification state.
- */
-enum NotificationState {
-    PENDING, SENT, FAILED
-}
