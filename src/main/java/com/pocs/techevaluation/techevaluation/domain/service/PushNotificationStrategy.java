@@ -24,8 +24,7 @@ public class PushNotificationStrategy implements NotificationChannelStrategy {
     }
 
     @Override
-    public void validate(Notification notification) {
-        String to = notification.to();
+    public void validateRecipient(String to) {
         if (to == null || !to.startsWith(DEVICE_PREFIX)) {
             throw new IllegalArgumentException("Device ID must have the prefix 'device_'");
         }
@@ -33,7 +32,6 @@ public class PushNotificationStrategy implements NotificationChannelStrategy {
 
     @Override
     public Notification send(Notification notification) {
-        validate(notification);
 
         // Simulate sending push notification
         // In a real implementation, this would call a push notification service port

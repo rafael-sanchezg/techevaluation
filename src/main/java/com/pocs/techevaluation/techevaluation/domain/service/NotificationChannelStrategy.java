@@ -11,13 +11,8 @@ public interface NotificationChannelStrategy {
 
 
     NotificationChannel getChannel();
-    /**
-     * Validates if the notification can be sent through this channel.
-     *
-     * @param notification the notification to validate
-     * @throws IllegalArgumentException if validation fails
-     */
-    void validate(Notification notification);
+
+    void validateRecipient(String to);
 
     /**
      * Sends the notification through this channel.

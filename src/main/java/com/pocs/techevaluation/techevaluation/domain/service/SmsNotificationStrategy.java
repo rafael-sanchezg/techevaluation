@@ -23,8 +23,7 @@ public class SmsNotificationStrategy implements NotificationChannelStrategy {
     }
 
     @Override
-    public void validate(Notification notification) {
-        String to = notification.to();
+    public void validateRecipient(String to) {
         if (to == null || !to.matches("\\d{10}")) {
             throw new IllegalArgumentException("Phone number must have exactly 10 numeric digits");
         }
@@ -32,7 +31,6 @@ public class SmsNotificationStrategy implements NotificationChannelStrategy {
 
     @Override
     public Notification send(Notification notification) {
-        validate(notification);
 
         // Simulate sending SMS
         // In a real implementation, this would call an SMS service port

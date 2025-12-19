@@ -23,16 +23,14 @@ public class EmailNotificationStrategy implements NotificationChannelStrategy {
     }
 
     @Override
-    public void validate(Notification notification) {
-        if (notification.to() == null || !notification.to().contains("@")) {
+    public void validateRecipient(String to) {
+        if (to == null || !to.contains("@")) {
             throw new IllegalArgumentException("Email address must contain an @ symbol");
         }
     }
 
     @Override
     public Notification send(Notification notification) {
-        validate(notification);
-
         // Simulate sending email
         // In a real implementation, this would call an email service port
         System.out.println("Sending EMAIL via " + getChannelName() + " to: " + notification.to());
